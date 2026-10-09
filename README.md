@@ -10,7 +10,7 @@ The goal is to keep the original controller's NES-style buttons and feel instead
 
 - [ ] Open the controller and photograph both sides of the PCB.
 - [ ] Identify the radio chip, microcontroller, and other important components.
-- [ ] Figure out how the original controller communicates with its USB receiver.
+- [ ] Investigate how the controller's original wireless connection works, even though the original USB receiver is not available.
 - [ ] Decide whether the original electronics can be reused or whether a different input-reading approach is needed.
 - [ ] Test a suitable ESP32 development board for Bluetooth gamepad support.
 - [ ] Build a bridge from the controller's button inputs to a Bluetooth gamepad, if the hardware makes that practical.
@@ -21,7 +21,6 @@ The goal is to keep the original controller's NES-style buttons and feel instead
 ### Existing
 
 - Wireless NES-style controller from a **Babibubary Extreme Mini Game Box / Retro Game Stick 2.1** kit.
-- The original USB receiver is currently missing.
 - iPhone running Delta (intended test device).
 
 ### Planned
@@ -29,14 +28,14 @@ The goal is to keep the original controller's NES-style buttons and feel instead
 - ESP32 development board (exact model not chosen yet).
 - Any additional radio or interface hardware identified during research.
 
-**Important:** An ESP32's Bluetooth capability does not automatically let it receive every proprietary 2.4 GHz controller signal. The original radio hardware and protocol need to be identified first. The project may require additional hardware or a different approach.
+**Important:** The original USB receiver is not available, so the original wireless link may be harder to investigate directly. An ESP32's Bluetooth capability does not automatically let it receive every proprietary 2.4 GHz controller signal. The controller's chips and circuitry need to be identified first. The project may require additional hardware or a different approach.
 
 ## How it might work
 
 1. Inspect the controller's PCB and identify its chips.
-2. Determine how button presses are encoded and transmitted.
-3. Check whether the existing electronics expose readable button signals.
-4. Choose a practical way to read those inputs.
+2. Determine what signals are available inside the controller when buttons are pressed.
+3. Investigate whether the original radio hardware or protocol can be reused without the receiver.
+4. Choose a practical way to read the button inputs.
 5. Send the inputs to the iPhone using a Bluetooth gamepad implementation supported by iOS.
 
 This is an investigation, not a confirmed design. The steps may change as new information is discovered.
@@ -46,7 +45,7 @@ This is an investigation, not a confirmed design. The steps may change as new in
 Record findings here as the project develops:
 
 - **Controller model:** Babibubary Extreme Mini Game Box / Retro Game Stick 2.1 kit.
-- **Original receiver:** Missing.
+- **Original USB receiver:** Not available.
 - **PCB inspection:** Not started.
 - **Radio protocol:** Unknown.
 - **Bluetooth implementation:** Not chosen.
